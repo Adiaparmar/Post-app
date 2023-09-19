@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Posts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <h1>Instagram</h1><hr>
+    <% for(post of posts) { %>
+        <div class="post">
+            <h3 class="user">@ <%= post.username %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button class="save"><i class="fa-solid fa-bookmark"></i></i></button></h3>
+            <div class="img"><img src="<%= post.image %>"></div>
+            <h4 class="content"><%= post.content %></h4>
+            <button><i class="fa-regular fa-heart"></i></button>
+            <button><i class="fa-regular fa-comment"></i></button>
+            <button><i class="fa-solid fa-share"></i></button><br>
+            <br>
+            <a href="http://localhost:8080/posts/<%=post.id%>">See in Detail</a>&nbsp&nbsp
+            <a href="http://localhost:8080/posts/<%=post.id%>/edit">Edit</a>&nbsp&nbsp
+            <br>
+            <br>
+            <form method="post" action="/posts/<%=post.id%>?_method=DELETE">
+                <button>Delete Post</button>
+            </form>
+            <hr>
+    <%}%>
+    <br>
+    <br>
+    <a href="http://localhost:8080/posts/new">Create New Post</a>
+</body>
+</html>
