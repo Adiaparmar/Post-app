@@ -1,1 +1,1 @@
-# This is a post app created with CRED operations
+# This is a post app created with CRUD operations
